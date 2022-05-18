@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from './firebase.init';
 
 const Header = () => {
@@ -11,7 +11,7 @@ const handleSignOut = () => {
 const [user] = useAuthState(auth);
 
     return (
-      <div class="navbar bg-base-100 px-16">
+      <div class="navbar bg-base-100 px-16 font-serif">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -35,38 +35,69 @@ const [user] = useAuthState(auth);
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Add Task</Link>
+                <NavLink className="text-lg font-bold " to="/">
+                  addTask
+                </NavLink>
               </li>
               <li>
-                <Link to="/allTask">All Task</Link>
+                <NavLink className="text-lg font-bold " to="/allTask">
+                  All Task
+                </NavLink>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                {user?.uid ? (
+                  <button onClick={handleSignOut} className="text-lg font-bold">
+                    Log Out
+                  </button>
+                ) : (
+                  <NavLink className="text-lg font-bold " to="/login">
+                    Login
+                  </NavLink>
+                )}
+              </li>
+              <li>
+                {user?.uid ? (
+                  <p className="font-bold text-gray-400">{user.displayName}</p>
+                ) : (
+                  ""
+                )}
               </li>
             </ul>
           </div>
-          <Link to="/" class="btn btn-ghost normal-case text-xl">
+          <Link to="/" class="text-blue-500 font-bold text-2xl">
             To Do
           </Link>
         </div>
         <div class="navbar-end hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <Link to="/">addTask</Link>
+              <NavLink className="text-lg font-bold " to="/">
+                addTask
+              </NavLink>
             </li>
             <li>
-              <Link to="/allTask">All Task</Link>
+              <NavLink className="text-lg font-bold " to="/allTask">
+                All Task
+              </NavLink>
             </li>
             <li>
               {user?.uid ? (
-                <button onClick={handleSignOut} className="btn btn-ghost">
+                <button onClick={handleSignOut} className="text-lg font-bold">
                   Log Out
                 </button>
               ) : (
-                <Link to="/login">Login</Link>
+                <NavLink className="text-lg font-bold " to="/login">
+                  Login
+                </NavLink>
               )}
             </li>
-            <li>{user?.uid ? <p>{user.displayName}</p> : ""}</li>
+            <li>
+              {user?.uid ? (
+                <p className="font-bold text-gray-400">{user.displayName}</p>
+              ) : (
+                ""
+              )}
+            </li>
           </ul>
         </div>
       </div>

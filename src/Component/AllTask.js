@@ -9,16 +9,19 @@ const AllTask = () => {
       .then((data) => setTasks(data));
   }, []);
   return (
-    <div>
-      this is all task:{tasks.length}
+    <div className="font-serif px-6 min-h-[78vh]">
+      <h1 className="text-center text-3xl my-8 font-bold text-blue-500">
+        My All Task
+      </h1>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>
             <tr>
-              <th></th>
+              <th>No.</th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Description</th>
+              <th>Complete</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddTask = () => {
     const navigate=useNavigate()
@@ -17,14 +18,22 @@ const AddTask = () => {
           .then((data) => {
               if(data.insertedId){
                 e.target.reset()
-                alert('task added successfully')
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "Your work has been saved",
+                  showConfirmButton: false,
+                  timer: 1800,
+                });
                 navigate('/allTask')
               }
           });
     }
     return (
-      <div className='font-serif'>
-        <h1 className='text-center text-3xl my-8 font-bold text-blue-500'>Added A New Task</h1>
+      <div className="font-serif min-h-[78vh]">
+        <h1 className="text-center text-3xl my-8 font-bold text-blue-500">
+          Added A New Task
+        </h1>
         <form className="w-1/2 mx-auto" onSubmit={handleAddTask}>
           <input
             className="block border w-10/12 mx-auto p-2 my-2 rounded-xl"
@@ -37,7 +46,11 @@ const AddTask = () => {
             name="description"
             placeholder="Description"
           ></textarea>
-          <input className='block w-32 mx-auto border-2 text-xl rounded-xl' type="submit" value="Add Task" />
+          <input
+            className="block w-32 mx-auto border-2 text-xl rounded-xl my-4 py-1 bg-blue-500 text-white"
+            type="submit"
+            value="Add Task"
+          />
         </form>
       </div>
     );
