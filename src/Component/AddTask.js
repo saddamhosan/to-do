@@ -21,7 +21,7 @@ const AddTask = () => {
                 Swal.fire({
                   position: "top-center",
                   icon: "success",
-                  title: "Your work has been saved",
+                  title: "Your task has been saved",
                   showConfirmButton: false,
                   timer: 1800,
                 });
@@ -34,7 +34,7 @@ const AddTask = () => {
         <h1 className="text-center text-3xl my-8 font-bold text-blue-500">
           Added A New Task
         </h1>
-        <form className="w-1/2 mx-auto" onSubmit={handleAddTask}>
+        <form className="md:w-1/2 mx-auto" onSubmit={handleAddTask}>
           <input
             className="block border w-10/12 mx-auto p-2 my-2 rounded-xl"
             type="text"

@@ -41,7 +41,7 @@ const Register = () => {
        await signInWithGoogle();
      };
     return (
-      <div className="w-1/2 mx-auto shadow-xl p-10 my-10 rounded-xl font-serif">
+      <div className="md:w-1/2 mx-auto shadow-xl p-10 my-10 rounded-xl font-serif">
         <div>
           <h1 className="text-center text-2xl font-bold text-blue-500 font  ">
             Please Register
