@@ -9,7 +9,7 @@ const AddTask = () => {
         const name=e.target.name.value
         const description = e.target.description.value
         const task = { name, description };
-        fetch("http://localhost:4000/task", {
+        fetch("https://limitless-wave-44594.herokuapp.com/task", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(task),

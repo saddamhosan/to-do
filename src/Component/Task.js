@@ -5,7 +5,7 @@ const Task = ({ task, index, tasks, setTasks }) => {
   const { name, description, _id, complete } = task;
 
   const handleComplete=(id)=>{
-      fetch(`http://localhost:4000/task/${id}`, {
+      fetch(`https://limitless-wave-44594.herokuapp.com/task/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
       })
@@ -35,7 +35,7 @@ const Task = ({ task, index, tasks, setTasks }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/task/${id}`, {
+        fetch(`https://limitless-wave-44594.herokuapp.com/task/${id}`, {
           method: "delete",
           headers: { "content-type": "application/json" },
         })
