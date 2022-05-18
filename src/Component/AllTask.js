@@ -22,9 +22,15 @@ const AllTask = () => {
             </tr>
           </thead>
           <tbody>
-              {
-                  tasks.map((task,index)=><Task key={task._id} task={task} index={index}/>)
-              }
+            {tasks.map((task, index) => (
+              <Task
+                key={task._id}
+                task={task}
+                index={index}
+                tasks={tasks}
+                setTasks={setTasks}
+              />
+            ))}
           </tbody>
         </table>
       </div>
