@@ -5,14 +5,29 @@ import AllTask from './Component/AllTask';
 import Header from './Component/Header';
 import Login from './Component/Login';
 import Register from './Component/Register';
+import RequireAuth from './Component/RequireAuth';
 
 function App() {
   return (
     <div>
-      <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element={<AddTask />} />
-        <Route path="/allTask" element={<AllTask />} />
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <AddTask />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/allTask"
+          element={
+            <RequireAuth>
+              <AllTask />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
