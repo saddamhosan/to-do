@@ -13,8 +13,8 @@ const AllTask = () => {
       <h1 className="text-center text-3xl my-8 font-bold text-blue-500">
         My All Task
       </h1>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>No.</th>

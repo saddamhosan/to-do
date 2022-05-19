@@ -57,12 +57,12 @@ const Task = ({ task, index, tasks, setTasks }) => {
       <td className={complete ? " line-through" : ""}>{name}</td>
       <td className={complete ? " line-through" : ""}>{description}</td>
       <td>
-        {!complete && <button onClick={()=>handleComplete(_id)} class="btn btn-xs bg-blue-700 border-0">
+        {!complete && <button onClick={()=>handleComplete(_id)} className="btn btn-xs bg-blue-700 border-0">
           Complete
         </button>}
       </td>
       <td>
-        <button onClick={() => handleDelete(_id)} class="btn btn-xs bg-red-600 border-0">
+        <button onClick={() => handleDelete(_id)} className="btn btn-xs bg-red-600 border-0">
           Delete
         </button>
       </td>
